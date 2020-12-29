@@ -21,7 +21,7 @@ public class MovieDAOImpl {
                     "PRIMARY KEY (id))";
             createTableStatement.execute(createTableQuery);
         } catch (final SQLException exp) {
-            throw new Movie.DatabaseActionException(exp);
+            throw new DatabaseActionException(exp);
         }
     }
 
@@ -29,7 +29,7 @@ public class MovieDAOImpl {
         try (final Statement deleteStructureStatement = connection.createStatement()) {
             deleteStructureStatement.execute("DROP TABLE MOVIES");
         } catch (final SQLException exp) {
-            throw new Movie.DatabaseActionException(exp);
+            throw new DatabaseActionException(exp);
         }
     }
 
@@ -40,7 +40,7 @@ public class MovieDAOImpl {
             insertItemStatement.setInt(3, movie.getYearOfRelease());
             insertItemStatement.executeUpdate();
         } catch (final SQLException exp) {
-            throw new Movie.DatabaseActionException(exp);
+            throw new DatabaseActionException(exp);
         }
     }
 
@@ -49,7 +49,7 @@ public class MovieDAOImpl {
             deleteItemStatement.setInt(1, id);
             deleteItemStatement.executeUpdate();
         } catch (final SQLException exp) {
-            throw new Movie.DatabaseActionException(exp);
+            throw new DatabaseActionException(exp);
         }
     }
 
@@ -59,7 +59,7 @@ public class MovieDAOImpl {
             updateStatement.setInt(2, id);
             updateStatement.executeUpdate();
         } catch (final SQLException exp) {
-            throw new Movie.DatabaseActionException(exp);
+            throw new DatabaseActionException(exp);
         }
     }
 
@@ -78,7 +78,7 @@ public class MovieDAOImpl {
             }
             return Optional.empty();
         } catch (final SQLException exp) {
-            throw new Movie.DatabaseActionException(exp);
+            throw new DatabaseActionException(exp);
         }
 
     }
@@ -97,7 +97,7 @@ public class MovieDAOImpl {
             }
             return movies;
         } catch (final SQLException exp) {
-            throw new Movie.DatabaseActionException(exp);
+            throw new DatabaseActionException(exp);
         }
     }
 

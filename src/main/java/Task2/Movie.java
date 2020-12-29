@@ -52,12 +52,6 @@ public class Movie {
         this.yearOfRelease = yearOfRelease;
     }
 
-    public static class DatabaseActionException extends RuntimeException {
-
-        public DatabaseActionException(final Throwable cause) {
-            super(cause);
-        }
-    }
 
     @Override
     public String toString() {
